@@ -13,6 +13,12 @@ Local-first development workflow skills for [Claude Code](https://docs.anthropic
 
 All workflow artifacts are stored as local markdown files in `docs/workflow/` — no GitHub issues or PRs required.
 
+## Multi-agent orchestration
+
+For non-trivial migrations where context-rot or model cost is a concern, use `/delegated-build` to run the workflow with model right-sizing: Opus orchestrates from the main thread, Sonnet subagents run the wf-1/wf-2/wf-3 chain, and Haiku handles mechanical edits inside wf-3. Every subagent invocation is traced in a live mermaid sequence diagram (`docs/workflow/<active-workflow>/agent-trace.md`) recording why/model/tokens for each call.
+
+See [.claude/skills/delegated-build/SKILL.md](.claude/skills/delegated-build/SKILL.md) for the full protocol.
+
 ## Setup
 
 1. Clone this repo into your project (or copy the `.claude/skills/` directory)
